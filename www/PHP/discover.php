@@ -151,8 +151,9 @@ $desc = utf8_encode($chanSounds->description);
   <li class="active">
             <a href="' . $chanSounds->URL . '">'
             . $title . '
-            </a><form id="add2PL" action="" method="POST"><input type="hidden" id="soundID" name="soundID" value="' . $chanSounds->soundID . '"> <p>' . $desc . '</p>
-        </li><button type="button" class="addTrigger btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $chanSounds->soundID . '">';
+            </a><form id="add2PL" action="" method="POST"><input type="hidden" id="soundID" name="soundID" value="' . $chanSounds->soundID . '">
+            <button type="button" class="addTrigger btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $chanSounds->soundID . '"> <p>' . $desc . '</p>
+        </li>';
 
         //while med fler res 
         while($chanSounds = $chanSoundsG->fetch_object()){
@@ -162,8 +163,8 @@ $title = utf8_encode($chanSounds->title);
 $desc = utf8_encode($chanSounds->description);
         		$popChannel .='<li id="notActive">
             <a href="' . $chanSounds->URL . '">' . $title . '
-            </a>
- <p>' . $desc . '</p>       </li><button type="button" class="addTrigger btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $chanSounds->soundID . '">';
+            </a><button type="button" class="addTrigger btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $chanSounds->soundID . '">
+ <p>' . $desc . '</p>       </li>';
 
         	}
         }

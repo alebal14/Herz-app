@@ -104,7 +104,7 @@ $('#uploadBox').toggleClass('hidden');
 $('#closeUpload').toggleClass('hidden');
 $('#openUpload').toggleClass('hidden');
     });
-
+     
 
        
                $('#openDisc').click(function(e){
@@ -151,12 +151,11 @@ $('#popBox').toggleClass('hidden');
 $('#closePop').toggleClass('hidden');
 $('#openPop').toggleClass('hidden');
     });
-
-              $('#openPopchan').click(function(e){
+       $('#openPopchan').click(function(e){
 e.preventDefault();
 
 $('#popchanBox').toggleClass('hidden');
-$('#openPopchan').toggchanleClass('hidden');
+$('#openPopchan').toggleClass('hidden');
 $('#closePopchan').toggleClass('hidden');
     });
 
@@ -166,7 +165,14 @@ $('#popchanBox').toggleClass('hidden');
 $('#closePopchan').toggleClass('hidden');
 $('#openPopchan').toggleClass('hidden');
     });
-       
+   $('.addTrigger').click(function(e){
+e.preventDefault();
+var soundID = $(this).next('.soundID').val();
+alert(soundID);
+});
+
+     
+  
  },
  error: function(){
 
@@ -347,10 +353,4 @@ $('#searchBox').html('');
 
 
   });
- $('.addTrigger').click(function(e){
-e.preventDefault();
-alert('apa');
-
-});
-
 
