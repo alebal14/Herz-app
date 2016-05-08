@@ -113,25 +113,35 @@ e.preventDefault();
 $('#discBox').toggleClass('hidden');
 $('#openDisc').toggleClass('hidden');
 $('#closeDisc').toggleClass('hidden');
-        $.ajax({
-        type: 'POST',
-        crossDomain: true,
-        url: 'http://ideweb2.hh.se/~sigsto14/Test/discover.php',  
-        data: { },
-        dataType: 'text',
+
+});
       
-   success: function(data){
-    $('#discBox').html(data);
+
         $('#openNew').click(function(e){
 e.preventDefault();
 
 $('#newBox').toggleClass('hidden');
 $('#openNew').toggleClass('hidden');
 $('#closeNew').toggleClass('hidden');
+
+  $.ajax({
+
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://ideweb2.hh.se/~sigsto14/Test/newUploads.php',  
+        data: {username: username },
+        dataType: 'text',
+      
+   success: function(data){
+   $('#newBox').html(data);
+    },
+   error: function() {}
     });
+  });
 
         $('#closeNew').click(function(e){
 e.preventDefault();
+audio[0].pause();
 $('#newBox').toggleClass('hidden');
 $('#closeNew').toggleClass('hidden');
 $('#openNew').toggleClass('hidden');
@@ -143,10 +153,25 @@ e.preventDefault();
 $('#popBox').toggleClass('hidden');
 $('#openPop').toggleClass('hidden');
 $('#closePop').toggleClass('hidden');
+   
+  $.ajax({
+
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://ideweb2.hh.se/~sigsto14/Test/popularSounds.php',  
+        data: {username: username },
+        dataType: 'text',
+      
+   success: function(data){
+   $('#popBox').html(data);
+    },
+   error: function() {}
     });
+  });
 
         $('#closePop').click(function(e){
 e.preventDefault();
+audio[0].pause();
 $('#popBox').toggleClass('hidden');
 $('#closePop').toggleClass('hidden');
 $('#openPop').toggleClass('hidden');
@@ -157,27 +182,57 @@ e.preventDefault();
 $('#popchanBox').toggleClass('hidden');
 $('#openPopchan').toggleClass('hidden');
 $('#closePopchan').toggleClass('hidden');
+   $.ajax({
+
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://ideweb2.hh.se/~sigsto14/Test/popularChannel.php',  
+        data: {username: username },
+        dataType: 'text',
+      
+   success: function(data){
+   $('#popchanBox').html(data);
+
+   $('.addTrigger').click(function(e){
+e.preventDefault();
+var soundID = $(this).next('.soundID').val();
+var listID =  $(this).prev().find('option:selected').val(); 
+if(listID == 'default'){
+  alert('Välj lista!');
+}
+else {
+ $.ajax({
+
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://ideweb2.hh.se/~sigsto14/Test/addToPlaylist.php',  
+        data: {soundID: soundID, listID: listID},
+        dataType: 'text',
+      
+   success: function(data){ 
+    alert(data);
+  },
+   error: function() {}
+ });
+}
+});
+
+    },
+   error: function() {}
     });
+  });
 
         $('#closePopchan').click(function(e){
 e.preventDefault();
+audio[0].pause();
 $('#popchanBox').toggleClass('hidden');
 $('#closePopchan').toggleClass('hidden');
 $('#openPopchan').toggleClass('hidden');
     });
-   $('.addTrigger').click(function(e){
-e.preventDefault();
-var soundID = $(this).next('.soundID').val();
-alert(soundID);
-});
+
 
      
-  
- },
- error: function(){
 
- }}); 
-});
 
  
 

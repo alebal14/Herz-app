@@ -51,8 +51,17 @@ $userID = $user->userID;
 // nu när vi har userID kan skapa ett formulär för att hämta spellistor
 $playlistStart ='<div id="container"><div id="searchBox"></div><button type="submit" id="openDisc" class="menu3">
 Upptäck<span class="caret"></span><button type="submit" id="closeDisc" 
-class="menu3 hidden">Upptäck<span class="caret caret-reversed"></span></button><div id="discBox" class="hidden"></div><button type="submit" id="openProf" class="menu">
-Sparade spellistor<span class="caret"></span><button type="submit" id="closeProf" class="menu hidden">Sparade spellistor<span class="caret caret-reversed"></span></button><div id="profBox" class="hidden">';
+class="menu3 hidden">Upptäck<span class="caret caret-reversed"></span></button><div id="discBox" class="hidden">
+<button id="openNew" class="plist2" type="submit">Nytt<span class="caret"></span></button><button id="closeNew" class="plist2 hidden" type="submit">Nytt
+<span class="caret caret-reversed"></span></button><div id="newBox" class="hidden"></div>
+<button id="openPop" class="plist2" type="submit">Populärt<span class="caret"></span></button><button id="closePop" class="plist2 hidden" type="submit">Populärt
+<span class="caret caret-reversed"></span></button><div id="popBox" class="hidden"></div>
+<button id="openPopchan" class="plist2" type="submit">Veckans kanal<span class="caret"></span></button><button id="closePopchan" class="plist2 hidden" type="submit">Veckans kanal
+<span class="caret caret-reversed"></span></button><div id="popchanBox" class="hidden"></div>
+</div>
+<button type="submit" id="openProf" class="menu">
+Sparade spellistor<span class="caret"></span><button type="submit" id="closeProf" class="menu hidden">Sparade spellistor<span class="caret caret-reversed"></span></button>
+<div id="profBox" class="hidden">';
 
 
 echo $playlistStart;
@@ -133,6 +142,8 @@ Min kanal<span class="caret"></span><button type="submit" id="closeChan" class="
 }
 
 echo '</div>';
+$selectbox = '<div id="addSelect" class="hidden"><select id="hej"><option>hej</option></select></div>';
+echo $selectbox;
 }
 
 
