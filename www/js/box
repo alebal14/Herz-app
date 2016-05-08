@@ -1,0 +1,8 @@
+ $(function()
+{
+
+   $('#closeProf').click(function(e){
+$('#profile')toggleClass('hidden');
+    });
+
+  });
