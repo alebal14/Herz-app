@@ -97,9 +97,9 @@ $desc = utf8_encode($chanSounds->description);
 
         	}
         }
-
-}
 $popChannel .= '</ul>';
+}
+
 }
 else {
 	$popChannel = 'Ingen populär kanal';

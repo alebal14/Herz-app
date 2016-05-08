@@ -65,7 +65,7 @@ while($new = $newG->fetch_object()){
 	}
 
 }
-
+$newC .= '</ul>';
 }
 else {
 	$newC = 'Inga nya uppladdningar';

@@ -109,6 +109,7 @@ if($listItems[0] == ''){
 }
 else {
 //hämta användare för listan
+        $cap = end($URLS2);
 if($PSOUND == $URLS2[0]){
   $title = utf8_encode($title->title);
 $content .= '
@@ -116,7 +117,7 @@ $content .= '
   <source src="' . $PSOUND . '">
   Your Fallback goes here
 </audio></pre>
-<ul id="playlist"><br>
+<ul id="playlist" class="playlist"><br>
   <li class="active">
             <a href="' . $PSOUND . '">'
             . $title . '
@@ -129,8 +130,8 @@ else {
     $title = '';
   }
   else{
-  $title = utf8_encode($title->title);
-$content .= '<li id="notActive">
+      $title = utf8_encode($title->title);
+  $content .= '<li id="notActive">
             <a href="' . $PSOUND . '">' . $title . '
             </a><p>Kanal:' . $channelname->channelname . '</p>
         </li>';
@@ -144,11 +145,12 @@ $content .= '<li id="notActive">
 
 
 
-
+$content .= '</ul></ul>';
 echo $content;
-echo '</ul>';
 
 echo $script;
+
+
 
 
 }
