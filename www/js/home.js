@@ -57,6 +57,7 @@ $('#CLOSE5').trigger('click');
 $('#profBox').toggleClass('hidden');
 $('#closeProf').toggleClass('hidden');
 $('#openProf').toggleClass('hidden');
+
     });
     $('#openProf').click(function(e){
 e.preventDefault();
@@ -64,6 +65,7 @@ $('#profBox').toggleClass('hidden');
 $('#closeProf').toggleClass('hidden');
 $('#openProf').toggleClass('hidden');
     });
+
     $('#closeChan').click(function(e){
 e.preventDefault();
 $('#chanBox').toggleClass('hidden');

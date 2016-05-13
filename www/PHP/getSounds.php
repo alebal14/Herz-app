@@ -113,7 +113,7 @@ else {
 if($PSOUND == $URLS2[0]){
   $title = utf8_encode($title->title);
 $content .= '
-<audio id="audio" preload="none" tabindex="0" controls="" >
+<audio id="audio" class="audio" preload="none" tabindex="0" controls="" >
   <source src="' . $PSOUND . '">
   Your Fallback goes here
 </audio></pre>

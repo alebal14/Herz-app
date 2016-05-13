@@ -22,29 +22,37 @@ $('#register').submit(function(e){
     var email = $.trim(email);
     var password = $('#passwordinput').val();
     var password = $.trim(password);
+        var information = $('#infoinput').val();
+var information  = $.trim(information);
     if(username=='')
     {
-        $('.error').html('Please enter username');
+        $('.error').html('Skriv in användarnamn');
         return false;
     }
     else if(password =='')
     {
-        $('.error').html('Please enter password');
+        $('.error').html('Skriv in lösenord');
         return false;
     }
-    else
+    else if(information == ''){
+ $('.error').html('Skriv in information om dig');
+        return false;
+    }
+        else
     {
         var username = $('#usernameinput').val();
         var email = $('#emailinput').val();
         var password = $('#passwordinput').val();
+        var information = $('#infoinput').val();
         $.ajax({
         type: 'POST',
         crossDomain: true,
         url: 'http://ideweb2.hh.se/~sigsto14/Test/signup.php',
-        data: { email: email, username: username, password: password},  
+        data: { email: email, username: username, password: password, information: information},  
         dataType: 'text',
 
         success: function(data){
+            alert(data);
             if(data == 'true') {
                   $('#container').html('<div class="alert alert-success"><p>Registrering lyckades! <br>Du kan nu <a href="index.html">logga in</a></p></div>');
 
@@ -77,8 +85,10 @@ $('#register').submit(function(e){
     <p class="logintext">Användarnamn:</p>
         <input type="text" class="logininput" name="username" placeholder="Användarnamn" id="usernameinput" value=""  />
         <p class="logintext">Email:</p>
-     <input type="text" class="logininput" name="email" placeholder="Email" id="emailinput" value=""  />
-     
+     <input type="email" class="logininput" name="email" placeholder="Email" id="emailinput" value=""  />
+      <form action="" method="post" id="register">
+    <p class="logintext">Information:</p>
+        <input type="textarea" class="logininput" name="information" placeholder="Information" id="infoinput" value=""  />
     <p class="logintext">Lösenord:</p>
         <input type="password" class="logininput" name="password" placeholder="******" id="passwordinput" value=""       />
     <br><br>

@@ -7,6 +7,7 @@ $dbname = "sigsto14_db";
 $PLAYLISTIDS = '';
 $divme = '';
 $soundDelete = '';
+$SelectCategory = '';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -105,8 +106,24 @@ $channelID = $channel->channelID;
 $minaKlipp = '<form action="" method="post" id="mySounds"><input type="hidden" name="userID" id="userID" value="' . $channelID . '">
 <button type="submit" id="openSound" class="plist2 soundB">Mina klipp<span class="caret"></span></button></form><button type="submit" id="closeSound" class="plist2 hidden soundB">Mina klipp
 <span class="caret caret-reversed"></span></button><div id="usersoundBox" class="hidden"></div>';
+//query för att hämta kategorier 
+$categoriesQ = <<<END
+SELECT * FROM category
+END;
+$categoriesG = $mysqli->query($categoriesQ);
+//kollar så finns 
+if($categoriesG->num_rows >0){
+  $categories = $categoriesG->fetch_object();
+$SelectCategory = '<select id="category"><option selected>Välj kategori!</option><option value="' .$categories->categoryID .'">'. $categories->categoryname . '</option>';
+while($categories = $categoriesG->fetch_object()){
 
-
+  $SelectCategory .= '<option value="' .$categories->categoryID .'">'. $categories->categoryname . '</option>';
+}
+$SelectCategory .= '</select>';
+}
+else {
+  $SelectCategory = 'Finns inga kategorier';
+}
 
 //knapp, box funktion att ladda upp filer
 $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span class="caret"></span></button><button id="closeUpload" class="plist2 hidden" type="submit">Ladda upp
@@ -118,6 +135,7 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                     <p class="logintext">Beskrivning:</p>
                     <input class="logininput" id="desc" type="text" name="desc" placeholder="Beskrivning" />
                     <p class="logintext">Taggar:</p>
+                    ' . $SelectCategory . '
                     <input class="logininput" id="tag" type="text" name="tag" placeholder="Taggar" />
                     	<p class="logintext">Podcastens ljud:</p>
   <input id="uploadAudio" type="file" accept="audio/*" name="audio" class="inputfile" /><label for="uploadAudio">Välj ljud</label>

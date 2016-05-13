@@ -79,7 +79,7 @@ $playlistsContent .=  '<button id="OPENPLU" class="plist" type="submit">Skapa sp
                 
   <button type="submit">Skapa spellista</button>
  </form></div><form action="" method="post" id="playlist1"><input type="hidden" value="' . $listID . '" id="listID" name="listID">
-<button id="OPEN" class="plist" type="submit">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE" class="plist hidden" type="submit">' . $listTitle->listTitle . '
+<button id="OPEN" class="plist" type="button">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE" class="plist hidden" type="button">' . $listTitle->listTitle . '
 <span class="caret caret-reversed"></span></button></form></div><div id="podcastbox1" class="hidden"><br><br><br></div>';
 }
 if($nrPLAYLISTS > 1){
@@ -94,7 +94,7 @@ END;
 $listTitleG = $mysqli->query($listTitleQ);
 $listTitle = $listTitleG->fetch_object();
 $playlistsContent .=  ' <form action="" method="post" id="playlist2"><input type="hidden" value="' . $listID . '" id="listID2" name="listID2">
-<button id="OPEN2" class="plist" type="submit">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE2" class="plist hidden" type="submit">' . $listTitle->listTitle . '
+<button id="OPEN2" class="plist" type="button">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE2" class="plist hidden" type="button">' . $listTitle->listTitle . '
 <span class="caret caret-reversed"></span></button></form><div id="podcastbox2" class="hidden"><br><br><br></div>';
 }
 if($nrPLAYLISTS > 2){
@@ -109,8 +109,8 @@ END;
 // hämtar resultatet (vi vet det finns eftersom det finns ett ID)
 $listTitleG = $mysqli->query($listTitleQ);
 $listTitle = $listTitleG->fetch_object();
-$playlistsContent .=  ' <form action="" method="post" id="playlist3"><input type="hidden" value="' . $listID . '" id="listID3" name="listID3"><button id="OPEN3" class="plist" type="submit">' . $listTitle->listTitle . '<span class="caret"></span></button>
-<button id="CLOSE3" class="plist hidden" type="submit">' . $listTitle->listTitle . '
+$playlistsContent .=  ' <form action="" method="post" id="playlist3"><input type="hidden" value="' . $listID . '" id="listID3" name="listID3"><button id="OPEN3" class="plist" type="button">' . $listTitle->listTitle . '<span class="caret"></span></button>
+<button id="CLOSE3" class="plist hidden" type="button">' . $listTitle->listTitle . '
 <span class="caret caret-reversed"></span></button></form><div id="podcastbox3" class="hidden"><br><br><br></div>';
 }
 
@@ -124,8 +124,8 @@ END;
 // hämtar resultatet (vi vet det finns eftersom det finns ett ID)
 $listTitleG = $mysqli->query($listTitleQ);
 $listTitle = $listTitleG->fetch_object();
-$playlistsContent .=  ' <form action="" method="post" id="playlist4"><input type="hidden" value="' . $listID . '" id="listID4" name="listID4"><button id="OPEN4" class="plist" type="submit">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE4" class="plist hidden" type="submit">' . $listTitle->listTitle . '
-<span class="caret caret-reversed"></span></button></form><div id="podcastbox4" class="hidden"><br><br><br></div>';
+$playlistsContent .=  ' <form action="" method="post" id="playlist4"><input type="hidden" value="' . $listID . '" id="listID4" name="listID4"><button id="OPEN4" class="plist" type="button">' . $listTitle->listTitle . '<span class="caret"></span></button>
+<button id="CLOSE4" class="plist hidden" type="button">' . $listTitle->listTitle . '<span class="caret caret-reversed"></span></button></form><div id="podcastbox4" class="hidden"><br><br><br></div>';
 }
 if($nrPLAYLISTS > 4){
 			$listID = $PLAYLISTIDS[8]; 
@@ -138,7 +138,7 @@ END;
 $listTitleG = $mysqli->query($listTitleQ);
 $listTitle = $listTitleG->fetch_object();
 $playlistsContent .=  ' <form action="" method="post" id="playlist5"><input type="hidden" value="' . $listID . '" id="listID5" name="listID5">
-<button id="OPEN5" class="plist" type="submit">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE5" class="plist hidden" type="submit">' . $listTitle->listTitle . '
+<button id="OPEN5" class="plist" type="button">' . $listTitle->listTitle . '<span class="caret"></span></button><button id="CLOSE5" class="plist hidden" type="button">' . $listTitle->listTitle . '
 <span class="caret caret-reversed"></span></button></form><div id="podcastbox5" class="hidden"><br><br><br></div>';
 }
 

@@ -8,8 +8,8 @@ var current;
 function init(){
 
     current = 0;
-    audio = $('#audio');
-    playlist = $('#playlist');
+    audio = $('#audio2');
+    playlist = $('#playlist2');
     tracks = playlist.find('li a');
     len = tracks.length - 1;
     audio[0].volume = .10;

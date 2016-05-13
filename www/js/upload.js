@@ -1,6 +1,9 @@
 $(document).ready(function (e) {
  $("#upload").on('submit',(function(e) {
   e.preventDefault();
+    var categoryID = $(this).find('option:selected').val();  
+     
+
   $.ajax({
          url: "http://ideweb2.hh.se/~sigsto14/Test/upload.php",
    type: "POST",
@@ -23,7 +26,8 @@ $(function () {
       var desc = $('#desc').val();
       var username = $('#username').val();
       var tag = $('#tag').val();
-       var links = $('#links').val(); 
+       var links = $('#links').val();
+     
  if(title=='')
     {
       $('#suc').html('<div class="alert alert-danger">Fyll i en titel till din pod</div>');
@@ -41,7 +45,7 @@ $(function () {
       type: "POST",
       crossDomain: true,
          url: "http://ideweb2.hh.se/~sigsto14/Test/upload2.php",
-data: { title: title, desc: desc, username:username, tag: tag, links: links},
+data: { title: title, desc: desc, username:username, tag: tag, links: links, categoryID: categoryID},
         dataType: 'text',
 
    success: function(data)

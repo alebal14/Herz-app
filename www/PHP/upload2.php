@@ -16,7 +16,7 @@ $desc = $_POST['desc'];
 $title = $_POST['title'];
 $tag = $_POST['tag'];
 $links = $_POST['links'];
-
+$categoryID = $_POST['categoryID'];
  $URLS = array_values(explode(',',$links,10));
 $audio = $URLS[0];
 $image = $URLS[1];
@@ -58,8 +58,8 @@ else {
 	$userID = '';
 }
 
-	$sql = "INSERT INTO sounds (title, description, URL, podpicture, tag, channelID)
-VALUES ('{$title}', '{$desc}', '{$audio}', '{$image}', '{$tag}', '{$userID}')";
+	$sql = "INSERT INTO sounds (title, description, URL, podpicture, tag, channelID, categoryID)
+VALUES ('{$title}', '{$desc}', '{$audio}', '{$image}', '{$tag}', '{$userID}', '{$categoryID}')";
 
 if (mysqli_query($conn, $sql)) {
    session_start();

@@ -37,7 +37,7 @@ if(isset($_FILES['image']))
   if(move_uploaded_file($tmp,$path)) 
   {
 
-   $imageLink = 'http://ideweb2.hh.se/~sigsto14/Test/' . $path;
+   $imageLink = 'http://ideweb2.hh.se/~sigsto14/Herz/' . $path;
 
   }
  } 
@@ -68,7 +68,7 @@ if(isset($_FILES['audio']))
   if(move_uploaded_file($tmp2,$path2)) 
   {
 
-$audioLink = 'http://ideweb2.hh.se/~sigsto14/Test/' . $path2;
+$audioLink = 'http://ideweb2.hh.se/~sigsto14/Herz/' . $path2;
   }
 
 
