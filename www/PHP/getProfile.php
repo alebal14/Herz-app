@@ -50,7 +50,7 @@ $userID = $user->userID;
 // om det inte går att komma åt databasen
 }
 // nu när vi har userID kan skapa ett formulär för att hämta spellistor
-$playlistStart ='<div id="container"><div id="searchBox"></div><button type="submit" id="openDisc" class="menu3">
+$playlistStart ='<div id="container"><div id="searchFB"></div><div id="searchBox"></div><button type="submit" id="openDisc" class="menu3">
 Upptäck<span class="caret"></span><button type="submit" id="closeDisc" 
 class="menu3 hidden">Upptäck<span class="caret caret-reversed"></span></button><div id="discBox" class="hidden">
 <button id="openNew" class="plist2" type="submit">Nytt<span class="caret"></span></button><button id="closeNew" class="plist2 hidden" type="submit">Nytt

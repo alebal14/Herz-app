@@ -36,12 +36,13 @@ END;
 
 $playlistSoundsG = $mysqli->query($playlistSoundsQ);
 // kollar om vi får resultat tillbaka
+
+
 if($playlistSoundsG->num_rows >0){
+
 
 // om det finns resultat vi hämtar det
 $playlist = $playlistSoundsG->fetch_object();
-
-
 // gör dem till en array
  $listItems = array_values(explode(',',$playlist->soundIDs,13));
  // hämtar ut användare också
@@ -68,6 +69,7 @@ if($res2->num_rows > 0){
   $title .= $URLS->title;
   $ADD .= $URLS->URL . ',';
 }
+
 }
 // gör array av urlen till spellistan
  $URLS2 = array_values(explode(',',$ADD,13));
@@ -111,6 +113,13 @@ else {
 //hämta användare för listan
         $cap = end($URLS2);
 if($PSOUND == $URLS2[0]){
+  //om spellistan tom
+  if($URLS2[0] == ''){
+
+  $content = 'Inga klipp i spellistan';
+  }
+  //om ej
+  else {
   $title = utf8_encode($title->title);
 $content .= '
 <audio id="audio" class="audio" preload="none" tabindex="0" controls="" >
@@ -124,6 +133,7 @@ $content .= '
             </a><p>Kanal:' . $channelname->channelname . '</p>
         </li>';
 
+}
 }
 else {
   if(is_null($title)){
@@ -143,6 +153,7 @@ else {
 
 }
 
+}
 
 
 $content .= '</ul></ul>';
@@ -153,7 +164,8 @@ echo $script;
 
 
 
-}
+
+
 }
 
 ?>

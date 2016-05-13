@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-
+$content = '';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -47,8 +47,25 @@ UPDATE playlists
 SET soundIDs = '{$newValue}'
 WHERE listID = '{$listID}'
 END;
+
 if (mysqli_query($conn, $sql)) {
-	echo 'japp';
+	//hämta info om ljud o lista
+$infoQ = <<<END
+SELECT * FROM sounds, playlists
+WHERE sounds.soundID = '{$soundID}'
+AND playlists.listID = '{$listID}'
+END;
+
+$infoG = $mysqli->query($infoQ);
+if($infoG->num_rows > 0){
+	//om resultat
+$info = $infoG->fetch_object();
+$content = $info->title . ' tillagd i ' . $info->listTitle;
+}
+else {
+	$content = 'Något gick fel, försök igen';
+}
+	echo $content;
 	}
 	else {
 		echo 'napp';

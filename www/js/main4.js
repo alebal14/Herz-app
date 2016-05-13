@@ -2,14 +2,14 @@ var audio;
 var playlist;
 var tracks;
 var current;
-
+//spellista popularChannel
 
 
 function init(){
 
     current = 0;
-    audio = $('#audioNU');
-    playlist = $('#playlistNU');
+    audio = $('#audioPC');
+    playlist = $('#playlistPC');
     tracks = playlist.find('li a');
     len = tracks.length - 1;
     audio[0].volume = .10;

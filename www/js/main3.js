@@ -2,14 +2,14 @@ var audio;
 var playlist;
 var tracks;
 var current;
-
+//spellista popular
 
 
 function init(){
 
     current = 0;
-    audio = $('#audioNU');
-    playlist = $('#playlistNU');
+    audio = $('#audioP');
+    playlist = $('#playlistP');
     tracks = playlist.find('li a');
     len = tracks.length - 1;
     audio[0].volume = .10;

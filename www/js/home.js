@@ -1,6 +1,6 @@
  $(function()
 {
- 
+
 $('#login').submit(function(e){
             e.preventDefault();
     var username = $('#username').val();
@@ -106,6 +106,8 @@ $('#uploadBox').toggleClass('hidden');
 $('#closeUpload').toggleClass('hidden');
 $('#openUpload').toggleClass('hidden');
     });
+
+  
      
 
        
@@ -368,28 +370,27 @@ $.ajax({
     }
 });
 
-});
 
- $(function()
-{
 
   $('#search').submit(function(e){
     e.preventDefault();
     var search = $('#searchinput').val();
+    var username = $('#username').val();
+
     if(search == ''){
       alert('Fyll i något att söka efter');
     }
     else {
-      var search = $('#searchinput').val();
+
           $.ajax({
         type: 'POST',
         crossDomain: true,
         url: 'http://ideweb2.hh.se/~sigsto14/Test/search.php',  
-        data: { search: search},
+        data: { search: search, username: username},
         dataType: 'text',
       
    success: function(data){
-
+   
         $('#searchBox').html(data);
 
   $('#closeSearch').click(function(e){
@@ -404,8 +405,7 @@ $('#searchBox').html('');
     }
     });
 
+});
 
 
-
-  });
 

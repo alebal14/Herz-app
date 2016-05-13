@@ -5,7 +5,7 @@ $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
 $selectPL = '<select class="listID" id="listID"><option value="default">Välj spellista</option>';
 $counter = 0;
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main4.js"></script>';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -15,7 +15,7 @@ $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 $username = $_POST['username'];
 $ADD = '';
 $title = '';
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+
 $content = '';
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -73,11 +73,11 @@ if($chanSoundsG->num_rows >0){
 $title = utf8_encode($chanSounds->title);
 $desc = utf8_encode($chanSounds->description);
 	$popChannel .= '
-<audio id="audio" preload="none" tabindex="0" controls="" >
+<audio id="audioPC" preload="none" tabindex="0" controls="" >
   <source src="' . $chanSounds->URL . '">
   Your Fallback goes here
 </audio></pre>
-<ul id="playlist"><br>
+<ul id="playlistPC"><br>
   <li class="active">
             <a href="' . $chanSounds->URL . '">'
             . $title . '

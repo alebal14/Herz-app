@@ -4,17 +4,17 @@ $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
 $counter = 0;
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
-// Create connection
+
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+
 
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
 
 $ADD = '';
 $title = '';
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main2.js"></script>';
 $content = '';
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -40,11 +40,11 @@ $title = utf8_encode($new->title);
 		$channelname = utf8_encode($new->channelname);
 //lägger till data i new variabel
 $newC = '
-<audio id="audio" preload="none" tabindex="0" controls="" >
+<audio id="audioNU" class="audio" preload="none" tabindex="0" controls="" >
   <source src="' . $new->URL . '">
   Your Fallback goes here
 </audio></pre>
-<ul id="playlist"><br>
+<ul id="playlistNU" cladd="playlist"><br>
   <li class="active">
             <a href="' . $new->URL . '">'
             . $title . '

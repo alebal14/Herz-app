@@ -56,6 +56,10 @@ data: { title: title, desc: desc, username:username, tag: tag, links: links, cat
       {
 $('#suc').html(data); 
       $("#upload")[0].reset(); 
+                    $('#closeUploaded').click(function(e){
+e.preventDefault();
+$('#suc').html('');
+    });
       },
      error: function(e) 
       {

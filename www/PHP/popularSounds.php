@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main3.js"></script>';
 $counter = 0;
 $popC = '';
 $playlists = '';
@@ -13,10 +13,10 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
-
+//variabler som ska fylas på
 $ADD = '';
 $title = '';
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+
 $content = '';
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -44,11 +44,11 @@ $title = utf8_encode($pop->title);
 $channelname = utf8_encode($pop->channelname);
 //första resultat aktivt
 	$popC = '
-<audio id="audio" preload="none" tabindex="0" controls="" >
+<audio id="audioP" preload="none" tabindex="0" controls="" >
   <source src="' . $pop->URL . '">
   Your Fallback goes here
 </audio></pre>
-<ul id="playlist"><br>
+<ul id="playlistP"><br>
   <li class="active">
             <a href="' . $pop->URL . '">'
             . $title . '

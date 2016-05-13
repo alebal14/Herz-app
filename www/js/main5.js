@@ -2,14 +2,14 @@ var audio;
 var playlist;
 var tracks;
 var current;
-
+//spellista sökresultat
 
 
 function init(){
 
     current = 0;
-    audio = $('#audioNU');
-    playlist = $('#playlistNU');
+    audio = $('#audioS');
+    playlist = $('#playlistS');
     tracks = playlist.find('li a');
     len = tracks.length - 1;
     audio[0].volume = .10;
@@ -43,3 +43,27 @@ function run(link, player){
 }
 
   init();  
+ $('.addTriggerS').click(function(e){
+e.preventDefault();
+var soundID = $(this).next('.soundID').val();
+var listID =  $(this).prev().find('option:selected').val(); 
+if(listID == 'default'){
+  alert('Välj lista!');
+}
+else {
+ $.ajax({
+
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://ideweb2.hh.se/~sigsto14/Test/addToPlaylist.php',  
+        data: {soundID: soundID, listID: listID},
+        dataType: 'text',
+      
+   success: function(data){ 
+    $('#searchFB').html(data);
+    
+  },
+   error: function() {}
+ });
+}
+});

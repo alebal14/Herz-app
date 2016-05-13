@@ -10,13 +10,15 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
 
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
-
+//hämtar variabler
 $username = $_POST['username'];
 $desc = $_POST['desc'];
-$title = $_POST['title'];
+$titleRaw = $_POST['title'];
+$title = utf8_decode($titleRaw);
 $tag = $_POST['tag'];
 $links = $_POST['links'];
 $categoryID = $_POST['categoryID'];
+//skickade med i array från upload 1 bryter ut dem
  $URLS = array_values(explode(',',$links,10));
 $audio = $URLS[0];
 $image = $URLS[1];
@@ -62,10 +64,10 @@ else {
 VALUES ('{$title}', '{$desc}', '{$audio}', '{$image}', '{$tag}', '{$userID}', '{$categoryID}')";
 
 if (mysqli_query($conn, $sql)) {
-   session_start();
 
+//matar ut resultat
 
-echo '<div class="alert alert-success"><h3> Pod uppladdad!</h3><h1>' . $title .'</h1><br><p>Beskrivning:' . $desc . '<br>Taggar:' . $tag . '</p><br><img src="' . $image . '" style="width:60px; height 40px;" /><audio controls>
+echo '<div class="alert alert-success"><button id="closeUploaded" class="close">X</button><br><h3> Pod uppladdad!</h3><h1>' . utf8_encode($title) .'</h1><br><p>Beskrivning:' . $desc . '<br>Taggar:' . $tag . '</p><br><img src="' . $image . '" style="width:60px; height 40px;" /><audio controls>
 <source src="' . $audio . '" type="audio/ogg">
 <source src="' . $audio . '" type="audio/mpeg">
 Your browser does not support the audio element.
