@@ -29,7 +29,7 @@ if($userSoundG->num_rows>0){
   //gör variabel om resultat
   $userSound = $userSoundG->fetch_object();
   //tom variabel som ska fyllas på
-  $userSoundContent = '';
+  $userSoundContent = '<div id="deleteFB"></div>';
 //gör en utf encode för att kunna ha värde åäö på titel
   $title = utf8_encode($userSound->title);
   // en select för att ta bort ljud
@@ -37,11 +37,11 @@ if($userSoundG->num_rows>0){
   $soundDelete .= '<h3>Radera podcast</h3><form action="" name="deleteSound" method="post" id="deleteSound"><select class="selectorDelete" name="soundID" id="soundID"><option value="' . $userSound->soundID . '">' . $userSound->title . '</option>';
   //första värdet som hämtas ut active i playlist
     $userSoundContent .= '
-<audio id="audio" preload="auto" tabindex="0" controls="" >
+<audio id="audio" class="audio" preload="auto" tabindex="0" controls="" >
   <source src="' . $userSound->URL . '">
   Your Fallback goes here
 </audio></pre>
-<ul id="playlist"><br>
+<ul id="playlist" class="playlist"><br>
   <li class="active"><div class="edit"></div>
             <a class="activateClick" href="' . $userSound->URL . '">'
             . $title . '

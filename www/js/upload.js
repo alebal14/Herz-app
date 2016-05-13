@@ -1,8 +1,9 @@
 $(document).ready(function (e) {
  $("#upload").on('submit',(function(e) {
+
   e.preventDefault();
     var categoryID = $(this).find('option:selected').val();  
-     
+        
 
   $.ajax({
          url: "http://ideweb2.hh.se/~sigsto14/Test/upload.php",
@@ -22,12 +23,15 @@ e.preventDefault();
 $(function () {
   $('#links').val(data);
 });
-    var title = $('#title').val();
+
+  e.preventDefault();
+ var title = $('#titel').val();
+ alert(title);
       var desc = $('#desc').val();
       var username = $('#username').val();
       var tag = $('#tag').val();
        var links = $('#links').val();
-     
+
  if(title=='')
     {
       $('#suc').html('<div class="alert alert-danger">Fyll i en titel till din pod</div>');

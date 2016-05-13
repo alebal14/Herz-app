@@ -305,9 +305,7 @@ var userID = $('#userID').val();
      $('#usersoundBox').html(data);
 
         $('#closeSound').click(function(){
- 
-
-
+      $('#usersoundBox').html('');
 
     });
 

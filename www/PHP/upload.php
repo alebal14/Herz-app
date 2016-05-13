@@ -4,16 +4,16 @@ $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
 
-// Create connection
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
+//skapar connection
 
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp'); // valid extensions
-$valid_extensions2 = array('mp3', 'ogg', 'wav', 'mpeg');
-$path = 'pictures/'; // upload directory
-$path2 = 'sounds/'; 
+$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp'); // vad som tillåts bild
+$valid_extensions2 = array('mp3', 'ogg', 'wav', 'mpeg'); // vad som tillåts ljud
+$path = 'pictures/'; // var de ska
+$path2 = 'sounds/';  // var de ska
 
 
 
@@ -23,13 +23,13 @@ if(isset($_FILES['image']))
  $img = $_FILES['image']['name'];
  $tmp = $_FILES['image']['tmp_name'];
   
- // get uploaded file's extension
+ // hämta file extension
  $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
  
- // can upload same image using rand function
+ // kan inte ladda upp samma filer twice
  $final_image = rand(1000,1000000).$img;
  
- // check's valid format
+ // kollar valid format
  if(in_array($ext, $valid_extensions)) 
  {     
   $path = $path.strtolower($final_image); 
@@ -37,7 +37,7 @@ if(isset($_FILES['image']))
   if(move_uploaded_file($tmp,$path)) 
   {
 
-   $imageLink = 'http://ideweb2.hh.se/~sigsto14/Herz/' . $path;
+   $imageLink = 'http://ideweb2.hh.se/~sigsto14/Test/' . $path;
 
   }
  } 
@@ -68,7 +68,7 @@ if(isset($_FILES['audio']))
   if(move_uploaded_file($tmp2,$path2)) 
   {
 
-$audioLink = 'http://ideweb2.hh.se/~sigsto14/Herz/' . $path2;
+$audioLink = 'http://ideweb2.hh.se/~sigsto14/Test/' . $path2;
   }
 
 

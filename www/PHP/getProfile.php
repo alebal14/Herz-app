@@ -131,12 +131,13 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                    <input type="hidden" id="username" name="username" value="' . $username . '">
                    <input type="hidden" id="links" name="links">
                     <p class="logintext">Titel:</p>
-                    <input class="logininput" id="title" type="text" name="title" placeholder="Poddens titel" />
+                                      <input class="logininput" id="titel" type="text" name="titel" placeholder="Titel" />
                     <p class="logintext">Beskrivning:</p>
                     <input class="logininput" id="desc" type="text" name="desc" placeholder="Beskrivning" />
-                    <p class="logintext">Taggar:</p>
-                    ' . $SelectCategory . '
+                    <p class="logintext">Taggar:</p> 
                     <input class="logininput" id="tag" type="text" name="tag" placeholder="Taggar" />
+
+                   <p class="logintext">Välj kategori:</p>  ' . $SelectCategory . '
                     	<p class="logintext">Podcastens ljud:</p>
   <input id="uploadAudio" type="file" accept="audio/*" name="audio" class="inputfile" /><label for="uploadAudio">Välj ljud</label>
                     <p class="logintext">Podcastens bild:</p>
