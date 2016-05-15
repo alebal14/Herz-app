@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-$content = '<button type="submit" class="close" id="closeSearch">X</button><h1>Sökresultat:</h1>';
+$content = '<button type="submit" class="close" id="closeSearch">X</button><div id="searchFB"></div><h1>Sökresultat:</h1>';
 $selectPL = '<select class="listID" id="listID"><option value="default">Välj spellista</option>';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
