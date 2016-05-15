@@ -34,6 +34,26 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        function startRecording()
+        {
+            var src = "FinalAudio.wav";
+            myMedia = new Media(src, onSuccess, onError);
+            myMedia.startRecord();
+            alert("Started recording");
+         }
+        function onSuccess() {
+            console.log("Created Audio for Recording");
+        }
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' +
+                  'message: ' + error.message + '\n');
+        }
+        function stopRecording()
+        {
+            myMedia.stopRecord();
+            alert("Stopped recording");
+        }
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -47,3 +67,5 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+

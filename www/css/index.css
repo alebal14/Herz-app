@@ -42,13 +42,28 @@ body {
   font-family: Museo-b;
   src: url('http://ideweb2.hh.se/~sigsto14/Test/fonts/museo-bold.otf') format("opentype");
 }
-@font-face {
-	font-family: 'icomoon';
-	src:url('http://ideweb2.hh.se/~sigsto14/Test/fonts/IcoMoon-Free.ttf');
-	src:url('http://ideweb2.hh.se/~sigsto14/Test/fonts/IcoMoon-Free.ttf') format('truetype'),
-		font-weight: normal;
-	font-style: normal; }
 
+ 	 /*Herz logo font*/
+
+	/*Icon Font*/
+		@font-face {
+			font-family: 'icomoon';
+			src:url('http://ideweb2.hh.se/~sigsto14/Herz/public/fonts/IcoMoon-Free.ttf');
+			src:url('http://ideweb2.hh.se/~sigsto14/Herz/public/fonts/IcoMoon-Free.ttf') format('truetype'),
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'icomoon2';
+			src:url('http://ideweb2.hh.se/~sigsto14/Herz/public/fonts/icomoon.eot');
+			src:url('http://ideweb2.hh.se/~sigsto14/Herz/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+			url('http://ideweb2.hh.se/~sigsto14/Herz/public/fonts/icomoon.woff') format('woff'),
+			url('http://ideweb2.hh.se/~sigsto14/Herz/fonts/fonts/icomoon/icomoon.ttf') format('truetype'),
+			url('http://ideweb2.hh.se/~sigsto14/Herz/public/fonts/icomoon/icomoon.svg#icomoon') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
 #logo-text{
     position: absolute;
     margin-top: -30px;

@@ -1,6 +1,30 @@
  $(function()
 {
 
+
+
+
+        function onDeviceReady() {
+           if( window.Cordova && navigator.splashscreen ) {     // Cordova API detected
+                navigator.splashscreen.hide();                 // hide splash screen
+            }       
+            document.getElementById("PhonegapVerID").innerHTML += device.cordova;
+            console.log("onDeviceReady: " + document.getElementById("PhonegapVerID").innerHTML);
+
+            console.log("*** phoneCheck.android: " + phoneCheck.android);
+            console.log("*** phoneCheck.ios: " + phoneCheck.ios);
+
+            // set initial button state
+            setButtonState(myMediaState.start);
+
+            // check if an existing media file already exist and reset button state
+            checkMediaRecFileExist();
+        }
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+
+
+
 $('#login').submit(function(e){
             e.preventDefault();
     var username = $('#username').val();
@@ -30,6 +54,8 @@ $('#login').submit(function(e){
 
    success: function(data){
             if(data == 'true') {  
+
+
    $('#search').removeClass('hidden');
                  $('.container').load('profil.html');
       $('#loggedIn').html(username);
@@ -95,6 +121,10 @@ $('#openInfo').toggleClass('hidden');
 
                 $('#openUpload').click(function(e){
 e.preventDefault();
+$('#rec').click(function(e){
+  e.preventDefault();
+$('#recBox').toggleClass('hidden');
+});
 $('#uploadBox').toggleClass('hidden');
 $('#openUpload').toggleClass('hidden');
 $('#closeUpload').toggleClass('hidden');

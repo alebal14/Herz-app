@@ -3,7 +3,7 @@ $(document).ready(function (e) {
 
   e.preventDefault();
     var categoryID = $(this).find('option:selected').val();  
-        
+ 
 
   $.ajax({
          url: "http://ideweb2.hh.se/~sigsto14/Test/upload.php",

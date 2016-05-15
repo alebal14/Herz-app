@@ -8,7 +8,9 @@ $PLAYLISTIDS = '';
 $divme = '';
 $soundDelete = '';
 $SelectCategory = '';
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/search.js"></script>';
+
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/search.js"></script>    <script src="http://ideweb2.hh.se/~sigsto14/Test/js/deviceCheck.js" type="text/javascript"></script>
+    <script src="http://ideweb2.hh.se/~sigsto14/Test/js/mediaHandlers.js" type="text/javascript"></script>';
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
@@ -137,10 +139,25 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                     <input class="logininput" id="desc" type="text" name="desc" placeholder="Beskrivning" />
                     <p class="logintext">Taggar:</p> 
                     <input class="logininput" id="tag" type="text" name="tag" placeholder="Taggar" />
-
-                   <p class="logintext">Välj kategori:</p>  ' . $SelectCategory . '
+<p class="logintext">Välj kategori:</p>  ' . $SelectCategory . '
                     	<p class="logintext">Podcastens ljud:</p>
-  <input id="uploadAudio" type="file" accept="audio/*" name="audio" class="inputfile" /><label for="uploadAudio">Välj ljud</label>
+  <div id="audioFile"><input id="uploadAudio" type="file" accept="audio/*" name="audio" class="inputfile" /></div><label for="uploadAudio">Välj ljud</label><a id="rec"><label>Spela in</label></a>
+  <div id="recBox" class="hidden"><img id="startRecID" src="http://ideweb2.hh.se/~sigsto14/Test/img/mick.png" onclick="startRecording()" style="width: 100px; height:auto;" class="linkRec"></img>   
+                <div style="text-align:center">
+                    <a id="stopRecID" style="display:none" onclick="stopRecording()" class="button red" type="button"><button>Stoppa inspelning</button></a>
+              
+                <p id="RecStatusID" style="text-align:center"></p>
+                <p id="media_rec_pos" style="text-align:center" class="logintext">00:00:00</p><br><br><br>
+                <div style="text-align:center">
+                    <h2>Listen</h2>
+               <div class="buttons">
+                        <img src="http://ideweb2.hh.se/~sigsto14/Test/img/play.png" id="startPlayID" onclick="playMusic()" class="button blue" style="width: 50px; height:auto;">
+                        <img src="http://ideweb2.hh.se/~sigsto14/Test/img/pause.png" id="pausePlayID" onclick="pauseMusic()" class="button blue" style="width: 50px; height:auto;">
+                        <img src="http://ideweb2.hh.se/~sigsto14/Test/img/stop.png" id="stopPlayID" onclick="stopMusic()" class="button red" style="width: 50px; height:auto;">
+                        <p id="media_pos" class="logintext">00:00:00</p>
+                 </div>
+                </div>
+            </div></div>
                     <p class="logintext">Podcastens bild:</p>
 <input id="uploadImage" type="file" accept="image/*" name="image" class="inputfile" /><label for="uploadImage">Välj bild</label>
 <br>
@@ -153,6 +170,7 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
 echo $minKanal;
 echo $minaKlipp;
 echo $upload;
+
 echo '</div>';
 
 }
@@ -162,10 +180,9 @@ Min kanal<span class="caret"></span><button type="submit" id="closeChan" class="
 }
 
 echo '</div>';
-$selectbox = '<div id="addSelect" class="hidden"><select id="hej"><option>hej</option></select></div>';
-echo $selectbox;
 
 echo $script;
+
 }
 
 
