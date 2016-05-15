@@ -117,17 +117,7 @@ body {
 
 }
 
-.login {
-    clear: left; 
-    width: 100%;
-        height: 40px;
-    font-size: 170%;
-background-color: #26a09f;
-    border: 1px solid #596365;
-    color: white;
-    font-family: 'Museo';
-    box-shadow: 5px 5px 3px #8fa4a3; 
-}
+
 
 
 .logintext {
@@ -297,55 +287,12 @@ background-color: black;
   transform: rotate(180deg);
 }
 
-.menu 
-{
-
-    width: 120%;
-    margin-left: -10%;
-    font-size: 170%;
-    padding: 5%;
-  background-color: #006666;
-
-    color: white;
-    font-family: 'Museo';
-    border-style: none;
-
-}
-
-.menu2
-{
-
-    width: 120%;
-    margin-left: -10%;
-    font-size: 170%;
-    padding: 5%;
-  
-background-color: #cccc66;
-    color: white;
-    font-family: 'Museo';
-    border-style: none;
-
-}
-.menu3
-{
-
-    width: 120%;
-    margin-left: -10%;
-    font-size: 170%;
-    padding: 5%;
-  
-background-color: blue;
-    color: white;
-    font-family: 'Museo';
-    border-style: none;
-
-}
 .plist
 {
 
-    width: 100%;
-  
-    font-size: 170%;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 140%;
     padding-bottom: 3%;
 background-color: #009999;
 border: none;
@@ -357,11 +304,11 @@ border-bottom: 4px solid #99cccc;
 .plist2
 {
 
-    width: 100%;
-  
-    font-size: 170%;
+    width: 90%;
+    margin-left: 5%;
+    font-size: 140%;
     padding-bottom: 3%;
-background-color: #c7de78;
+
 border: none;
 border-bottom: 4px solid #99cccc;
     color: white;
@@ -441,3 +388,38 @@ width: 80%;
     cursor:pointer;
 
 }
+.push_button {
+	position: relative;
+	width:220px;
+	height:40px;
+	text-align:center;
+	color:#FFF;
+	text-decoration:none;
+	line-height:43px;
+	font-family:'Oswald', Helvetica;
+	display: block;
+	margin: 30px;
+}
+
+button {
+
+background-color: #26a09f;
+   background: -webkit-gradient(linear, left top, left bottom, from(#35b5b5), to(#ddf1e5));
+   background: -webkit-linear-gradient(top, #26a0a0, #ddf1e5);
+   background: -moz-linear-gradient(top, #26a0a0, #ddf1e5);
+   background: -ms-linear-gradient(top, #26a0a0, #ddf1e5);
+   background: -o-linear-gradient(top, #26a0a0, #ddf1e5);
+   border: none;
+   border-radius: 5px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+  color: white;
+    font-family: 'Museo';
+   text-decoration: none;
+   vertical-align: middle;
+       width: 100%;
+        height: 40px;
+    font-size: 170%
+   }
+

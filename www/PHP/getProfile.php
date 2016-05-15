@@ -147,14 +147,12 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                     <a id="stopRecID" style="display:none" onclick="stopRecording()" class="button red" type="button"><button>Stoppa inspelning</button></a>
               
                 <p id="RecStatusID" style="text-align:center"></p>
-                <p id="media_rec_pos" style="text-align:center" class="logintext">00:00:00</p><br><br><br>
                 <div style="text-align:center">
                     <h2>Listen</h2>
                <div class="buttons">
                         <img src="http://ideweb2.hh.se/~sigsto14/Test/img/play.png" id="startPlayID" onclick="playMusic()" class="button blue" style="width: 50px; height:auto;">
                         <img src="http://ideweb2.hh.se/~sigsto14/Test/img/pause.png" id="pausePlayID" onclick="pauseMusic()" class="button blue" style="width: 50px; height:auto;">
                         <img src="http://ideweb2.hh.se/~sigsto14/Test/img/stop.png" id="stopPlayID" onclick="stopMusic()" class="button red" style="width: 50px; height:auto;">
-                        <p id="media_pos" class="logintext">00:00:00</p>
                  </div>
                 </div>
             </div></div>

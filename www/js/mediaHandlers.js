@@ -1,11 +1,4 @@
-/*jslint browser:true, devel:true, white:true, vars:true, eqeq:true, -W069, -W020*/
-/*global $:true, phoneCheck:false, Media:false, LocalFileSystem:false*/
-/*
-* Copyright (c) 2014, Intel Corporation. All rights reserved.
-* File revision: 04 February 2014
-* Please see http://software.intel.com/html5/license/samples 
-* and the included README.md file for license terms and conditions.
-*/
+
 
 var my_recorder = null, my_player = null;
 var progressTimmer = null;
@@ -14,7 +7,7 @@ var recTime = 0;
 
 // for recording: do not specify any directory
 var mediaFileFullName = null; 
-var mediaRecFile = "myRecording100.wav";
+var mediaRecFile = "myRecording100.mp3";
 var checkFileOnly = false;
 var mediaFileExist = false;
 var myMediaState = {start: 1, 
