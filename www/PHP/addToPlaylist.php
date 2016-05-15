@@ -60,7 +60,7 @@ $infoG = $mysqli->query($infoQ);
 if($infoG->num_rows > 0){
 	//om resultat
 $info = $infoG->fetch_object();
-$content = $info->title . ' tillagd i ' . $info->listTitle;
+$content = utf8_encode($info->title) . ' tillagd i ' . $info->listTitle;
 }
 else {
 	$content = 'Något gick fel, försök igen';

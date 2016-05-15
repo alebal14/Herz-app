@@ -82,7 +82,7 @@ $channelname = utf8_encode($channel->channelname);
             <a href="' . $row->URL . '">'
             . $title . '
             </a><p>Kanal:' . $channelname . '</p>
-        </li>'. $selectPL . '<button type="button" class="addTriggerS btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $row->soundID . '"> ';;
+        </li>'. $selectPL . '<button type="button" class="addTriggerS btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $row->soundID . '"> ';
 while($row = $searchG->fetch_object()){
   $channelIDS = $row->channelID;
 $channelIDQ = <<<END
@@ -96,7 +96,7 @@ $channelname = utf8_encode($channel->channelname);
   $content .= '<li id="notActive">
             <a href="' . $row->URL . '">' . $title . '
             </a><p>Kanal:' . $channelname . '</p>
-        </li>'. $selectPL . '<button type="button" class="addTriggerS btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $row->soundID . '"> ';;
+        </li>'. $selectPL . '<button type="button" class="addTriggerS btn-success">+</button><input type="hidden" id="soundID" name="soundID" class="soundID" value="' . $row->soundID . '"> ';
 }
 
 }

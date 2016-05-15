@@ -3,6 +3,8 @@ $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
+
+//variabel för att välja playlist
 $selectPL = '<select class="listID" id="listID"><option value="default">Välj spellista</option>';
 $counter = 0;
 $script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main4.js"></script>';

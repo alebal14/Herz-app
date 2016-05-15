@@ -127,7 +127,7 @@ e.preventDefault();
 $('#newBox').toggleClass('hidden');
 $('#openNew').toggleClass('hidden');
 $('#closeNew').toggleClass('hidden');
-
+var username = $('#username').val();
   $.ajax({
 
         type: 'POST',
@@ -157,7 +157,7 @@ e.preventDefault();
 $('#popBox').toggleClass('hidden');
 $('#openPop').toggleClass('hidden');
 $('#closePop').toggleClass('hidden');
-   
+   var username = $('#username').val();
   $.ajax({
 
         type: 'POST',
