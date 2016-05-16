@@ -312,12 +312,11 @@ border-bottom: 4px solid #99cccc;
 /*andra minilista */
 .plist2
 {
-
     width: 90%;
     margin-left: 5%;
     font-size: 140%;
     padding-bottom: 3%;
-
+background-color: #009999;
 border: none;
 border-bottom: 4px solid #99cccc;
     color: white;
@@ -415,7 +414,7 @@ width: 80%;
 	margin: 30px;
 }
 /*knappar */
-button {
+.menu, .menu2, .menu3, .login {
 
 background-color: #26a09f;
    background: -webkit-gradient(linear, left top, left bottom, from(#35b5b5), to(#ddf1e5));

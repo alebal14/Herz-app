@@ -15,18 +15,15 @@ $(function()
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getSounds.php',
         data: { listID: listID},  
         dataType: 'text',
- beforeSend: function() {
-  //feedback
+beforeSend: function() {
         $('#podcastbox1').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
     },
         success: function(data){
-          //matar ut data
-  $('#podcastbox1').html(data);
+    $('#podcastbox1').html(data);
         $('#CLOSE').toggleClass('hidden');
 $('#OPEN').toggleClass('hidden');
         },
         error: function(){
-          //felmeddelande
            $('#podcastbox1').html('<div class="alert alert-danger">Något gick fel, försök igen</div>');
         }
     });
