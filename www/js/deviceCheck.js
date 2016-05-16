@@ -1,11 +1,7 @@
-/*jslint browser:true, devel:true, white:true, vars:true, eqeq:true */
-
-/*
-* Copyright (c) 2014, Intel Corporation. All rights reserved.
-* File revision: 26 February 2012
-* Please see http://software.intel.com/html5/license/samples 
-* and the included README.md file for license terms and conditions.
-*/
+//kollar om device är redo
+//cordova "plugin"
+//cordova default
+//copy paste code för audio-recording
 
 // detect device
 var ua = navigator.userAgent.toLowerCase();

@@ -3,7 +3,7 @@
 
 $(function()
 {
-
+//skickar värdena med ajax för att hämta ljuden
  $('#playlist1').submit(function(d){
             d.preventDefault();
      
@@ -16,21 +16,24 @@ $(function()
         data: { listID: listID},  
         dataType: 'text',
  beforeSend: function() {
+  //feedback
         $('#podcastbox1').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
     },
         success: function(data){
+          //matar ut data
   $('#podcastbox1').html(data);
         $('#CLOSE').toggleClass('hidden');
 $('#OPEN').toggleClass('hidden');
         },
         error: function(){
+          //felmeddelande
            $('#podcastbox1').html('<div class="alert alert-danger">Något gick fel, försök igen</div>');
         }
     });
 
 });
 
-
+//samma kod upprepas 5 gånger för olika id'n
 
 
  $('#playlist2').submit(function(d){

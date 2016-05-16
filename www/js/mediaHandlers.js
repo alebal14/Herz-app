@@ -1,4 +1,7 @@
-
+//open source inspelning
+//från git
+//cordova "plugin"
+//längre ner originell kod för uppladdning
 
 var my_recorder = null, my_player = null;
 var progressTimmer = null;
@@ -301,16 +304,16 @@ function setButtonState(curState)
     return(id_disabled_map); 
 }
 
-
+//uppladdning av ljud
 
 $(document).ready(function (e) {
-
+//on submit
  $("#upload").on('submit',(function(e) {
 e.preventDefault();
 
-
+//variabel kategori
   var categoryID = $(this).find('option:selected').val();  
-
+//skickar först filer till upload
   $.ajax({
          url: "http://ideweb2.hh.se/~sigsto14/Test/upload.php",
    type: "POST",
@@ -318,25 +321,27 @@ e.preventDefault();
    contentType: false,
          cache: false,
    processData:false,
-   beforeSend : function()
-   {
-    //$("#preview").fadeOut();
-    $("#err").fadeOut();
-   },
+  beforeSend: function() {
+        //loadinggif feedback när laddar
+        $('#suc').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
    success: function(data)
       {
+        //om det funkar
 e.preventDefault();
 $(function () {
+    //lägger data som value
   $('#links').val(data);
 });
 e.preventDefault();
+//variabler av value
  var title = $('#titel').val();
 
       var desc = $('#desc').val();
       var username = $('#username').val();
       var tag = $('#tag').val();
        var links = $('#links').val();
-
+//feedback olika händelser
  if(title=='')
     {
       $('#suc').html('<div class="alert alert-danger">Fyll i en titel till din pod</div>');
@@ -350,6 +355,7 @@ e.preventDefault();
       $('#suc').html('<div class="alert alert-danger">Fyll i taggar till din pod</div>');
     }
     else {
+        //skicka data genom ajax till upload2 som ska lägga upp infon på databasen
   $.ajax({
       type: "POST",
       crossDomain: true,
@@ -359,8 +365,10 @@ data: { title: title, desc: desc, username:username, tag: tag, links: links, cat
 
    success: function(data)
       {
+        //om det funkar mata ut data, reseta formulär
 $('#suc').html(data); 
       $("#upload")[0].reset(); 
+      //ta bort data om stäng box
                     $('#closeUploaded').click(function(e){
 e.preventDefault();
 $('#suc').html('');
@@ -368,6 +376,7 @@ $('#suc').html('');
       },
      error: function(e) 
       {
+        //feedback om fel
     $("#err").html('<div class="alert alert-danger">Någonting gick fel. Försök igen</div>');
       }          
     });
@@ -378,6 +387,7 @@ $('#suc').html('');
       },
      error: function(e) 
       {
+        //feedback om fel
     $("#suc").html(data);
       $("#upload")[0].reset(); 
       }          

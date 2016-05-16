@@ -1,29 +1,30 @@
 <?php
+//etablerar kontakt med databas
 $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+$mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
+
+//variabler
+// räknare för att kunna kappa resultat som matas ut
 $counter = 0;
 //variabel för att välja playlist
 $selectPL = '<select class="listID" id="listID"><option value="default">Välj spellista</option>';
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-
-$mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
-
-
+//variabler som skall fyllas på
 $ADD = '';
 $title = '';
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main2.js"></script>';
 $content = '';
-
+// script för spellista som ska matas ut
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main2.js"></script>';
+//inmatat användarnamn
 $username = $_POST['username'];
+
 if (!$conn) {
+  // om kontakt ej etableras
     die("Connection failed: " . mysqli_connect_error());
 }
-
-
 else {
 
 //query för att hämta användares spellistor 
@@ -35,25 +36,27 @@ WHERE users.username = '{$username}'
 END;
 //hämta playlists 
 $playlistG = $mysqli->query($playlistsQ);
+//kollar om det finns resultat
 if($playlistG->num_rows > 0){
+//om resultat finns
+  //hämtar datan
 $playlists = $playlistG->fetch_object();
-
+//lägger till i selectpl variabel som options
   $selectPL .= '<option value="' . $playlists->listID . '">' . $playlists->listTitle . '</option>';
-
+//hämtar ut alla res o lägger till genom while loop
   while($playlists = $playlistG->fetch_object()){
 $selectPL .= '<option value="' . $playlists->listID . '">' . $playlists->listTitle . '</option>';
   }
+  //stänger select input
   $selectPL .= '</select>';
 }
 
 else {
+  //om användare ej har spellistor
   $selectPL = 'Du har inga spellistor än. Skapa under "Sparade spellistor"';
 }
 
-
-
-
-	//query hämta ut nya uppladdningar
+//query hämta ut nya uppladdningar
 
 	$newQ = <<<END
 SELECT * FROM sounds
@@ -101,6 +104,7 @@ $newC .= '</ul>';
 else {
 	$newC = 'Inga nya uppladdningar';
 }
+//mata ut contentet
 echo $newC;
 echo $script;
 }

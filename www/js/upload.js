@@ -1,10 +1,20 @@
+//script uppladdning
+
 $(document).ready(function (e) {
  $("#upload").on('submit',(function(e) {
 
   e.preventDefault();
+  //variable kategori
     var categoryID = $(this).find('option:selected').val();  
- 
-
+ //filvariabler
+ var audioInput = $('#uploadAudio').val();
+ var imageInput = $('#uploadImage').val();
+ if(audioInput != ''){
+$('#audLabel').addClass('activeFile');
+ } 
+ if(imageInput != ''){
+$('#imgLabel').addClass('activeFile');
+ } 
   $.ajax({
          url: "http://ideweb2.hh.se/~sigsto14/Test/upload.php",
    type: "POST",
@@ -14,8 +24,7 @@ $(document).ready(function (e) {
    processData:false,
    beforeSend : function()
    {
-    //$("#preview").fadeOut();
-    $("#err").fadeOut();
+
    },
    success: function(data)
       {

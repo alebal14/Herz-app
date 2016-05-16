@@ -27,7 +27,7 @@ body {
                                       /* offset horizontal: half of image width and text area width */
     }
 }
-
+/* definierar fonter */
 @font-face {
   font-family: Museo;
   src: url('http://ideweb2.hh.se/~sigsto14/Test/fonts/Museo300-Regular.otf') format("opentype");
@@ -64,6 +64,8 @@ body {
 			font-weight: normal;
 			font-style: normal;
 		}
+
+		/*loggans text*/
 #logo-text{
     position: absolute;
     margin-top: -30px;
@@ -73,14 +75,14 @@ body {
     color: #26a09f;
     letter-spacing: .05em;
 }
-
+/* loginmenyn*/
 #login-menu{
     position: absolute;
     background-color: #b9dcdc;
   
 }
 
-
+/*huvudet*/
 .navbar-fixed-top{
 	position: fixed;
     background-color:  #b9dcdc;
@@ -89,7 +91,7 @@ body {
 }
 
 
-
+/* där allt är*/
 #container{
     position: relative;
     margin-top: 40%;
@@ -105,7 +107,7 @@ body {
 
   
 }
-
+/* text i formulär (input)  */
 .logininput {
     position: relative;
     width: 100%;
@@ -118,7 +120,7 @@ body {
 }
 
 
-
+/* text i formulär (labels) */
 
 .logintext {
     padding-top: 2%;
@@ -129,27 +131,27 @@ body {
     font-family: 'Museo';
 
 }
-
+/*felmeddelande*/
 .error p {
     font-style: bold;
     font-family: 'Museo-b';
 
 }
-
+/*vanlig text*/
 p {
 	font-size: 115%;
 	color: black;
     font-family: 'Museo';
 
 }
-
+/*länkar*/
 #link {
 	padding-top: 3%;
 	  font-size: 130%;
     font-family: 'Museo-b';
 
 }
-
+/*profl storlek */
 .myProfile {
    width: 90%;
     padding-left: 10%;
@@ -164,17 +166,18 @@ p {
     border-radius: 5%;
 
 }
+/*länkar i profilen */
 .myProfile a{
 
 	color: #26a09f;
 }
 
 
-
+/*bild, tillfälligt inaktiv */
 #loggedInPic {
 	position: relative;
  }
-
+/*hidden klass*/
  .hidden {
  	display: none;
  }
@@ -183,7 +186,7 @@ p {
  	background:#26a09f;
  	color:#fff;
  }
-
+/* lista, sepllista */
 ul {
 	list-style: none;
 	width: 100%;
@@ -192,7 +195,7 @@ ul {
 }
 #playlist,audio{width:100%;}
 
-
+/* aktiv i spellista */
 .active a{
 
 	background-color:#669999;
@@ -200,15 +203,16 @@ ul {
 	text-decoration:none;
 font-family: 'Museo-b';}
 	
-
+/* icke aktiv i spellista */
 li a{
 	font-size: 130%;
 	font-family: 'Museo';
 	color:#eeeedd;
 background:#339999;
 	display:block;}
-
+/* hover lite onödigt eftersom man inte hovrar på appen men..*/
 li a:hover{text-decoration:none;}
+/* text i playlist */
 li p {
 	font-size: 105%;
 
@@ -217,7 +221,7 @@ li p {
 	
 	display:block;
 }
-
+/* knapp i button */
 li button {
 	position: absolute;
 
@@ -225,21 +229,23 @@ li button {
 	font-family: 'Museo-b';
 	margin-left: 55%;
 }
+/*rubriker */
 h1{
 	font-family: 'Museo-b';
 }
 
-
+/*rubriker */
 h2, h3, h4 {
 	font-family: 'Museo';
 }
-
+/* spellista gradient bg */
 .PL {
 	  border: 0;
     height: 2px;
     background-image: linear-gradient(to right, rgba(66, 225, 170, 0), rgba(38, 160, 159, 0.75), rgba(66, 225, 170, 0));
 }
-
+/* sökfält 
+*/
 .search {
     position: fixed;
     width: 60%;
@@ -254,7 +260,7 @@ h2, h3, h4 {
     background-color: #d1dede;
 
 }
-
+/*sök knapp*/
 #searchButton {
 position: fixed;
  margin-top: -9%;
@@ -267,6 +273,8 @@ background-color: #26a09f;
     font-family: 'Museo-b';
  
 }
+
+/*stäng box kryss */
 .close
 
 {
@@ -280,13 +288,13 @@ background-color: black;
     font-family: 'Museo-b';
  
 }
-
+/* uppåtpil*/
 .caret-reversed{
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-
+/*första minilista */
 .plist
 {
 
@@ -301,6 +309,7 @@ border-bottom: 4px solid #99cccc;
     font-family: 'Museo';
 
 }
+/*andra minilista */
 .plist2
 {
 
@@ -315,7 +324,7 @@ border-bottom: 4px solid #99cccc;
     font-family: 'Museo';
 
 }
-
+/* inputfile */
 .inputfile {
 	width: 0.1px;
 	height: 0.1px;
@@ -324,7 +333,11 @@ border-bottom: 4px solid #99cccc;
 	position: absolute;
 	z-index: -1;
 }
-
+/* active input*/
+.activeFile label{
+	background-color: #26a09f;
+}
+/* labels */
 label {
 	position: relative;
     font-size: 120%;
@@ -337,7 +350,7 @@ background-color: #cccc66;
      border: 1px solid #596365;
         font-family: 'Museo-b';
 }
-
+/* knapp i ladda upp */
 #uploadBox button {
     clear: left; 
     width: 100%;
@@ -350,7 +363,7 @@ background-color: #cccc66;
     box-shadow: 5px 5px 3px #8fa4a3; 
 
 }
-
+/* redigera knapp */
 .editbtn {
 	position: absolute;
 	background-color: #66ffcc;
@@ -360,12 +373,12 @@ background-color: #cccc66;
 	padding-bottom: 1%;
 	font-weight: 900;
 }
-
+/* knapp aktiv */
 .activeBtn {
 	font-family: 'Museo-b';
 	text-decoration: underline;
 }
-
+/* select */
 select {
 	content: '<>';
     padding:3px;
@@ -388,6 +401,7 @@ width: 80%;
     cursor:pointer;
 
 }
+/* knappar */
 .push_button {
 	position: relative;
 	width:220px;
@@ -400,7 +414,7 @@ width: 80%;
 	display: block;
 	margin: 30px;
 }
-
+/*knappar */
 button {
 
 background-color: #26a09f;
@@ -423,3 +437,13 @@ background-color: #26a09f;
     font-size: 170%
    }
 
+/* edit knappar */
+
+.btn-success {
+width: 15%;
+}
+/* delete knappar */
+
+.btn-danger {
+width: 15%;
+}

@@ -1,8 +1,10 @@
+//spellista popularChannel
+
 var audio;
 var playlist;
 var tracks;
 var current;
-//spellista popularChannel
+
 
 
 function init(){
@@ -43,3 +45,5 @@ function run(link, player){
 }
 
   init();  
+//popular channel fick addtoplaylist först
+//denna funktion ligger i home.js

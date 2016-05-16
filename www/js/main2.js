@@ -1,3 +1,9 @@
+//playlist YOOOOOO
+//new uploads gäller denna
+//copy paste från main 1
+//pga id-conflicts
+//har alla egen
+//samma kod olika ID
 var audio;
 var playlist;
 var tracks;
@@ -45,6 +51,8 @@ function run(link, player){
   init();  
 
   //lägg till i spellista kod
+  //kod för att lägga till i spellista
+  //också i denna fil pga id-conflicts
  $('.addTriggerNew').click(function(e){
 e.preventDefault();
 var soundID = $(this).next('.soundID').val();

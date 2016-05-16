@@ -1,34 +1,35 @@
 <?php
+//MAIN PHP SIDA
+//DENNA SIDA HÄMTAR OCH MATAR UT INFORMATION
+//DENNA SIDA INNEHÅLLER HTML STRUKTUR
 
+//skapar connection mot databas
 $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-$PLAYLISTIDS = '';
-$divme = '';
-$soundDelete = '';
-$SelectCategory = '';
-
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/search.js"></script>    <script src="http://ideweb2.hh.se/~sigsto14/Test/js/deviceCheck.js" type="text/javascript"></script>
-    <script src="http://ideweb2.hh.se/~sigsto14/Test/js/mediaHandlers.js" type="text/javascript"></script>';
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
 //sätter variabel username
 $username = $_POST['username'];
+//tomma variabler som skall fyllas på
+$PLAYLISTIDS = '';
+$divme = '';
+$soundDelete = '';
+$SelectCategory = '';
+//script som ska matas ut
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/search.js"></script>    <script src="http://ideweb2.hh.se/~sigsto14/Test/js/deviceCheck.js" type="text/javascript"></script>
+    <script src="http://ideweb2.hh.se/~sigsto14/Test/js/mediaHandlers.js" type="text/javascript"></script>';
+//toppen av html-sidan
 
-echo '
-    
-           <div class="myProfile">
+echo '<div class="myProfile">
     <center><h3><a href="#" id="profi">' . $username . '</a>
       </div>
 ';
 
-
 if (!$conn) {
+  //om databaskoppling ej etableras
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -67,11 +68,9 @@ class="menu3 hidden">Upptäck<span class="caret caret-reversed"></span></button>
 Sparade spellistor<span class="caret"></span><button type="submit" id="closeProf" class="menu hidden">Sparade spellistor<span class="caret caret-reversed"></span></button>
 <div id="profBox" class="hidden">';
 
-
+//matar ut innehållet
 echo $playlistStart;
 echo '</div>';
-
-
 
 //query för att hämta ut kanal (om användaren har en kanal)
 
@@ -92,8 +91,7 @@ if($channelG->num_rows > 0){
 // matar ut data av resultaten
 	//starta echo mot kanal
 
-echo '
-<button type="submit" id="openChan" class="menu2">
+echo '<button type="submit" id="openChan" class="menu2">
 Min kanal<span class="caret"></span><button type="submit" id="closeChan" class="menu2 hidden">Min kanal<span class="caret caret-reversed"></span></button>
 <div id="chanBox" class="hidden">';
 // knapp box information om kanal
@@ -116,19 +114,27 @@ END;
 $categoriesG = $mysqli->query($categoriesQ);
 //kollar så finns 
 if($categoriesG->num_rows >0){
+  //hämtar om det finns
   $categories = $categoriesG->fetch_object();
+  //lägger till i select-variabel
 $SelectCategory = '<select id="category"><option selected>Välj kategori!</option><option value="' .$categories->categoryID .'">'. $categories->categoryname . '</option>';
+//while loop för att hämta fler resultat
 while($categories = $categoriesG->fetch_object()){
-
+//lägger in fler resultat i variabel
   $SelectCategory .= '<option value="' .$categories->categoryID .'">'. $categories->categoryname . '</option>';
 }
+//stänger selectinput
 $SelectCategory .= '</select>';
 }
 else {
+  //om det inte finns några kategorier
   $SelectCategory = 'Finns inga kategorier';
 }
 
 //knapp, box funktion att ladda upp filer
+//denna knapp öppnar att ladda upp filer
+//formulär för uppladdning
+//knappar som startar funktioner för att spela in nytt ljud
 $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span class="caret"></span></button><button id="closeUpload" class="plist2 hidden" type="submit">Ladda upp
 <span class="caret caret-reversed"></span></button><div id="uploadBox" class="hidden"><div id="suc"></div><form id="upload" action="ajaxupload.php" method="post" enctype="multipart/form-data">
                    <input type="hidden" id="username" name="username" value="' . $username . '">
@@ -141,12 +147,11 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                     <input class="logininput" id="tag" type="text" name="tag" placeholder="Taggar" />
 <p class="logintext">Välj kategori:</p>  ' . $SelectCategory . '
                     	<p class="logintext">Podcastens ljud:</p>
-  <div id="audioFile"><input id="uploadAudio" type="file" name="audio" class="inputfile" /></div><label for="uploadAudio">Välj ljud</label><a id="rec"><label>Spela in</label></a>
+  <div id="audioFile"><input id="uploadAudio" type="file" name="audio" class="inputfile" /></div><label id="audLabel" for="uploadAudio">Välj ljud</label><a id="rec"><label>Spela in</label></a>
   <div id="recBox" class="hidden"><img id="startRecID" src="http://ideweb2.hh.se/~sigsto14/Test/img/mick.png" onclick="startRecording()" style="width: 100px; height:auto;" class="linkRec"></img>   
                 <div style="text-align:center">
                     <a id="stopRecID" style="display:none" onclick="stopRecording()" class="button red" type="button"><button>Stoppa inspelning</button></a>
-              
-                <p id="RecStatusID" style="text-align:center"></p>
+   <p id="RecStatusID" style="text-align:center"></p>
                 <div style="text-align:center">
                     <h2>Listen</h2>
                <div class="buttons">
@@ -157,14 +162,14 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                 </div>
             </div></div>
                     <p class="logintext">Podcastens bild:</p>
-<input id="uploadImage" type="file" accept="image/*" name="image" class="inputfile" /><label for="uploadImage">Välj bild</label>
+<input id="uploadImage" type="file" accept="image/*" name="image" class="inputfile" /><label id="imgLabel" for="uploadImage">Välj bild</label>
 <br>
   <button type="submit" >Ladda upp</button>
  </form>
  </div>
 ';
 
-
+//matar ut content
 echo $minKanal;
 echo $minaKlipp;
 echo $upload;
@@ -173,12 +178,13 @@ echo '</div>';
 
 }
 else {
+  //om användaren ej har en kanal
 	echo '<button type="submit" id="openChan" class="menu2">
 Min kanal<span class="caret"></span><button type="submit" id="closeChan" class="menu2 hidden">Min kanal<span class="caret caret-reversed"></span></button><div id="infoBox" class="hidden">Du har ingen kanal än, skapa en <a href="#"> här </a></div>';
 }
 
 echo '</div>';
-
+//mata ut script
 echo $script;
 
 }

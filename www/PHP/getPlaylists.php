@@ -1,26 +1,27 @@
 <?php
+//php för att hämta användares spellistor
 
+//koppla mot databasen
 $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-$PLAYLISTIDS = '';
-$divme = '';
-$counter = 0;
-$listIDs = '';
-
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/playlist.js"></script>
-';
-$soundDelete = '';
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
 //sätter variabel username
 $userID = $_POST['userID'];
 
+//variabler som skall fyllas på
+$soundDelete = '';
+$PLAYLISTIDS = '';
+$divme = '';
+$listIDs = '';
+//räknare för att kunna capa resultat som matas ut
+$counter = 0;
+//script som ska matas ut
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/playlist.js"></script>';
+//content som ska matas ut, ett formulär för att skapa spellista
 $playlistsContent = '<button id="OPENPLU" class="plist" type="submit">Skapa spellista<span class="caret"></span></button><button id="CLOSEPLU" class="plist hidden" type="submit">Skapa spellista
 <span class="caret caret-reversed"></span></button><div id="PLU" class="hidden">
 <form id="PL" action="" method="post" name="PL">
@@ -34,10 +35,10 @@ $playlistsContent = '<button id="OPENPLU" class="plist" type="submit">Skapa spel
   <button type="submit">Skapa spellista</button>
  </form></div>';
 if (!$conn) {
+	//om kontakt mot database ej etableras
     die("Connection failed: " . mysqli_connect_error());
 }
-
-
+//om vi kommer åt databas
 else { 
 
 
@@ -143,7 +144,7 @@ else {
 
 }
 
-
+//matar ut content
 echo $script;
 echo $playlistsContent;
 echo '</div>';

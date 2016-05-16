@@ -1,23 +1,25 @@
 <?php
+//PHP för att hämta ut ljud i användarens spellistor
+//skapar kontakt mot databasen 
 $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-
-$playlists = '';
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
-
+//det inmatade listID't
 $listID = $_POST['listID'];
+//tomma variabler som skall fyllas på
+$playlists = '';
 $ADD = '';
 $title = '';
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
 $content = '';
+//script som skall matas ut
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+
 if (!$conn) {
+  //om ej kontakt med databas etableras
     die("Connection failed: " . mysqli_connect_error());
 }
 
@@ -38,8 +40,6 @@ $playlistSoundsG = $mysqli->query($playlistSoundsQ);
 
 
 if($playlistSoundsG->num_rows >0){
-
-
 // om det finns resultat vi hämtar det
 $playlist = $playlistSoundsG->fetch_object();
 // gör dem till en array
@@ -54,7 +54,7 @@ END;
 $userG = $mysqli->query($userQ);
 $user = $userG->fetch_object();
   foreach($listItems as $listItem){
-
+//hämtar ljud för var listitem
   $query2 = <<<END
   SELECT * FROM sounds
   WHERE soundID = '{$listItem}'
@@ -63,9 +63,11 @@ END;
 
 $res2 = $mysqli->query($query2);
 if($res2->num_rows > 0){
-  
+  //hämtar resultat ur query2
+  //gör variabler som är relevanta
   $URLS = $res2->fetch_object(); 
   $title .= $URLS->title;
+  //lägger till i en "array"
   $ADD .= $URLS->URL . ',';
 }
 
@@ -119,6 +121,7 @@ if($PSOUND == $URLS2[0]){
   }
   //om ej
   else {
+    //första eresultat aktivt
   $title = utf8_encode($title->title);
 $content .= '
 <audio id="audio" class="audio" preload="none" tabindex="0" controls="" >
@@ -139,6 +142,7 @@ else {
     $title = '';
   }
   else{
+    //fler resultat
       $title = utf8_encode($title->title);
   $content .= '<li id="notActive">
             <a href="' . $PSOUND . '">' . $title . '
@@ -154,11 +158,10 @@ else {
 
 }
 
-
+//stänger ul element
 $content .= '</ul></ul>';
+//matar ut
 echo $content;
-
-
 echo $script;
 
 

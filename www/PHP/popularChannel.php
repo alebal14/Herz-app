@@ -1,30 +1,36 @@
 <?php
+//PHP för att hämta populär kanal
+//koppling databas
 $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-
-//variabel för att välja playlist
-$selectPL = '<select class="listID" id="listID"><option value="default">Välj spellista</option>';
-$counter = 0;
-$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main4.js"></script>';
-// Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
 
+//variabler
+//variabel för att välja playlist
+$selectPL = '<select class="listID" id="listID"><option value="default">Välj spellista</option>';
+//räknare för att knna capa resultat
+$counter = 0;
+//script som ska matas ut
+$script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main4.js"></script>';
+//inmatat användarnamn
 $username = $_POST['username'];
+//tomma som ska fyllas på sernare
 $ADD = '';
 $title = '';
-
 $content = '';
+
 if (!$conn) {
+  //om kontakt ej etableras
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
 else {
+  //om vi kommer åt databas
+
+  //hämtar ut spellista där user id är samma som userid där username är
 $playlistsQ = <<<END
 SELECT * FROM playlists
 INNER JOIN users
@@ -33,18 +39,23 @@ WHERE users.username = '{$username}'
 END;
 //hämta playlists 
 $playlistG = $mysqli->query($playlistsQ);
+//om resultat
 if($playlistG->num_rows > 0){
+  //hämtar object
 $playlists = $playlistG->fetch_object();
-
+//lägger till första value som option i select
   $selectPL .= '<option value="' . $playlists->listID . '">' . $playlists->listTitle . '</option>';
-
+//en loop för alla object
   while($playlists = $playlistG->fetch_object()){
+    //lägger till i select
 $selectPL .= '<option value="' . $playlists->listID . '">' . $playlists->listTitle . '</option>';
   }
+  //stänger select
   $selectPL .= '</select>';
 }
 
 else {
+  //om inga spellistor
   $selectPL = 'Du har inga spellistor än. Skapa under "Sparade spellistor"';
 }
 
@@ -104,10 +115,11 @@ $popChannel .= '</ul>';
 
 }
 else {
+  //om ej hittar något
 	$popChannel = 'Ingen populär kanal';
 }
 
-
+//matar ut content
 echo $popChannel;
 echo $script;
 }

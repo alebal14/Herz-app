@@ -1,9 +1,9 @@
+//spellista sökresultat
+
 var audio;
 var playlist;
 var tracks;
 var current;
-//spellista sökresultat
-
 
 function init(){
 
@@ -43,6 +43,8 @@ function run(link, player){
 }
 
   init();  
+
+  //add to playlist
  $('.addTriggerS').click(function(e){
 e.preventDefault();
 var soundID = $(this).next('.soundID').val();

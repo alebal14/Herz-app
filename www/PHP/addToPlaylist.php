@@ -1,25 +1,33 @@
 <?php
+//sida för lägga till pod i spellista
+
+//skapa connection till databas
 $servername = "localhost";
 $username = "sigsto14";
 $password = "ZW_6W5CiiC";
 $dbname = "sigsto14_db";
-$content = '';
-// Create connection
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-
 $mysqli = new mysqli("localhost","sigsto14","ZW_6W5CiiC","sigsto14_db");
-$listID = $_POST['listID'];
-$soundID = $_POST['soundID'];
-
-$counter = 0;
+//script som ska med i utmatning
 $script = '<script type="text/javascript" src="http://ideweb2.hh.se/~sigsto14/Test/js/main.js"></script>';
+//inmatat listID
+$listID = $_POST['listID'];
+//inmatat podID
+$soundID = $_POST['soundID'];
+//tom innehållsvariabel som skall fyllas på
 $content = '';
+//counter för att räkna resultat i loop, börjar på 0
+$counter = 0;
 if (!$conn) {
+	// om kontakt ej etableras
     die("Connection failed: " . mysqli_connect_error());
 }
+//variabler
 
 
+
+//om kontakt mot databas etableras
 else { 
 //först hitta spellistan som menas o hämta ut den
 	$playlistQ = <<<END
@@ -47,7 +55,7 @@ UPDATE playlists
 SET soundIDs = '{$newValue}'
 WHERE listID = '{$listID}'
 END;
-
+//om quern utförts (uppdatering skett)
 if (mysqli_query($conn, $sql)) {
 	//hämta info om ljud o lista
 $infoQ = <<<END
@@ -59,15 +67,20 @@ END;
 $infoG = $mysqli->query($infoQ);
 if($infoG->num_rows > 0){
 	//om resultat
+	//hämtar resultat
 $info = $infoG->fetch_object();
+//lägger till i content (feedback)
 $content = utf8_encode($info->title) . ' tillagd i ' . $info->listTitle;
 }
 else {
+//om ej lyckades
 	$content = 'Något gick fel, försök igen';
 }
+//mata ut content
 	echo $content;
 	}
 	else {
+		// om ej lyckades mata ut (kollar mot detta i ajax)
 		echo 'napp';
 	}
 }

@@ -1,8 +1,11 @@
+
+//spellista popular
+
+
 var audio;
 var playlist;
 var tracks;
 var current;
-//spellista popular
 
 
 function init(){
@@ -43,7 +46,7 @@ function run(link, player){
 }
 
   init();  
-
+//add to pl
  $('.addTriggerP').click(function(e){
 e.preventDefault();
 var soundID = $(this).next('.soundID').val();
