@@ -295,7 +295,7 @@ background-color: black;
   transform: rotate(180deg);
 }
 /*första minilista */
-.plist
+.plist, .plist2
 {
 
     width: 90%;
@@ -309,20 +309,7 @@ border-bottom: 4px solid #99cccc;
     font-family: 'Museo';
 
 }
-/*andra minilista */
-.plist2
-{
-    width: 90%;
-    margin-left: 5%;
-    font-size: 140%;
-    padding-bottom: 3%;
-background-color: #009999;
-border: none;
-border-bottom: 4px solid #99cccc;
-    color: white;
-    font-family: 'Museo';
 
-}
 /* inputfile */
 .inputfile {
 	width: 0.1px;
