@@ -54,13 +54,13 @@ if(isset($_FILES['audio']))
  $audio = $_FILES['audio']['name'];
  $tmp2 = $_FILES['audio']['tmp_name'];
   
- // get uploaded file's extension
+//hämtar extension
  $ext2 = strtolower(pathinfo($audio, PATHINFO_EXTENSION));
  
- // can upload same image using rand function
+
  $final_audio = rand(1000,1000000).$audio;
  
- // check's valid format
+ // kollar valid format
  if(in_array($ext2, $valid_extensions2)) 
  {     
   $path2 = $path2.strtolower($final_audio); 
@@ -70,7 +70,6 @@ if(isset($_FILES['audio']))
 
 $audioLink = 'http://ideweb2.hh.se/~sigsto14/Test/' . $path2;
   }
-
 
  } 
  else 

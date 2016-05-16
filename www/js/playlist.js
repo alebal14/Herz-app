@@ -15,7 +15,9 @@ $(function()
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getSounds.php',
         data: { listID: listID},  
         dataType: 'text',
-
+ beforeSend: function() {
+        $('#podcastbox1').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
         success: function(data){
   $('#podcastbox1').html(data);
         $('#CLOSE').toggleClass('hidden');
@@ -42,7 +44,9 @@ $('#OPEN').toggleClass('hidden');
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getSounds.php',
         data: { listID: listID},  
         dataType: 'text',
-
+ beforeSend: function() {
+        $('#podcastbox2').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
         success: function(data){
     $('#podcastbox2').html(data);
         $('#CLOSE2').toggleClass('hidden');
@@ -65,7 +69,9 @@ $('#playlist3').submit(function(d){
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getSounds.php',
         data: { listID: listID},  
         dataType: 'text',
-
+ beforeSend: function() {
+        $('#podcastbox3').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
              success: function(data){
     $('#podcastbox3').html(data);
        $('#CLOSE3').toggleClass('hidden');
@@ -89,7 +95,9 @@ $('#playlist4').submit(function(d){
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getSounds.php',
         data: { listID: listID},  
         dataType: 'text',
-
+ beforeSend: function() {
+        $('#podcastbox4').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
            success: function(data){
             $('#CLOSE4').toggleClass('hidden');
 $('#OPEN4').toggleClass('hidden');
@@ -113,7 +121,9 @@ $('#playlist5').submit(function(d){
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getSounds.php',
         data: { listID: listID},  
         dataType: 'text',
-
+ beforeSend: function() {
+        $('#podcastbox5').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
             success: function(data){
        $('#podcastbox1').html(data);
           $('#CLOSE5').toggleClass('hidden');

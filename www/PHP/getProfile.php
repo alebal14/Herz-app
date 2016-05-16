@@ -141,7 +141,7 @@ $upload = '<button id="openUpload" class="plist2" type="submit">Ladda upp<span c
                     <input class="logininput" id="tag" type="text" name="tag" placeholder="Taggar" />
 <p class="logintext">Välj kategori:</p>  ' . $SelectCategory . '
                     	<p class="logintext">Podcastens ljud:</p>
-  <div id="audioFile"><input id="uploadAudio" type="file" accept="audio/*" name="audio" class="inputfile" /></div><label for="uploadAudio">Välj ljud</label><a id="rec"><label>Spela in</label></a>
+  <div id="audioFile"><input id="uploadAudio" type="file" name="audio" class="inputfile" /></div><label for="uploadAudio">Välj ljud</label><a id="rec"><label>Spela in</label></a>
   <div id="recBox" class="hidden"><img id="startRecID" src="http://ideweb2.hh.se/~sigsto14/Test/img/mick.png" onclick="startRecording()" style="width: 100px; height:auto;" class="linkRec"></img>   
                 <div style="text-align:center">
                     <a id="stopRecID" style="display:none" onclick="stopRecording()" class="button red" type="button"><button>Stoppa inspelning</button></a>

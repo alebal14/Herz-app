@@ -51,7 +51,10 @@ $('#login').submit(function(e){
         url: 'http://ideweb2.hh.se/~sigsto14/Test/login.php',
   data: { username: username, password: password},  
         dataType: 'text',
+ beforeSend: function() {
 
+        $('#loading').removeClass('hidden');
+    },
    success: function(data){
             if(data == 'true') {  
 
@@ -68,7 +71,7 @@ $('#login').submit(function(e){
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getProfile.php',  
         data: { username: username},
         dataType: 'text',
-      
+
    success: function(data){
 
         $('#profile').html(data);
@@ -88,6 +91,7 @@ $('#openProf').toggleClass('hidden');
     $('#openProf').click(function(e){
 e.preventDefault();
 $('#profBox').toggleClass('hidden');
+
 $('#closeProf').toggleClass('hidden');
 $('#openProf').toggleClass('hidden');
     });
@@ -165,7 +169,9 @@ var username = $('#username').val();
         url: 'http://ideweb2.hh.se/~sigsto14/Test/newUploads.php',  
         data: {username: username },
         dataType: 'text',
-      
+      beforeSend: function() {
+        $('#newBox').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
    success: function(data){
    $('#newBox').html(data);
     },
@@ -195,7 +201,9 @@ $('#closePop').toggleClass('hidden');
         url: 'http://ideweb2.hh.se/~sigsto14/Test/popularSounds.php',  
         data: {username: username },
         dataType: 'text',
-      
+       beforeSend: function() {
+        $('#popBox').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
    success: function(data){
    $('#popBox').html(data);
     },
@@ -223,7 +231,9 @@ $('#closePopchan').toggleClass('hidden');
         url: 'http://ideweb2.hh.se/~sigsto14/Test/popularChannel.php',  
         data: {username: username },
         dataType: 'text',
-      
+       beforeSend: function() {
+        $('#popchanBox').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
    success: function(data){
    $('#popchanBox').html(data);
 
@@ -307,7 +317,9 @@ var userID = $('#userID').val();
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getPlaylists.php',  
         data: { userID: userID},
         dataType: 'text',
-      
+       beforeSend: function() {
+        $('#profBox').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
    success: function(data){
     $('#profBox').html(data);
  },
@@ -326,15 +338,12 @@ var userID = $('#userID').val();
         url: 'http://ideweb2.hh.se/~sigsto14/Test/getMySounds.php',  
         data: { userID: userID},
         dataType: 'text',
-      
+       beforeSend: function() {
+        $('#usersoundBox').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
    success: function(data){
  
-
-
-
-
-
-     $('#usersoundBox').html(data);
+ $('#usersoundBox').html(data);
 
         $('#closeSound').click(function(){
       $('#usersoundBox').html('');
@@ -354,7 +363,9 @@ $.ajax({
     url: 'http://ideweb2.hh.se/~sigsto14/Test/deleteSound.php',
     data: { soundID: soundID},
     dataType: 'text',
-
+ beforeSend: function() {
+        $('#deleteFB').html('<center><img id="loading" src="http://ideweb2.hh.se/~sigsto14/Test/img/loading2.gif"></center>');
+    },
     success: function(data){
       $('#deleteFB').html('<div class="alert alert-success">Pod raderad!</div>')
     },

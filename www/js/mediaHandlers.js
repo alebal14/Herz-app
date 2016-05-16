@@ -7,7 +7,7 @@ var recTime = 0;
 
 // for recording: do not specify any directory
 var mediaFileFullName = null; 
-var mediaRecFile = "myRecording100.mp3";
+var mediaRecFile = "myRecording100.wav";
 var checkFileOnly = false;
 var mediaFileExist = false;
 var myMediaState = {start: 1, 
@@ -308,7 +308,6 @@ $(document).ready(function (e) {
  $("#upload").on('submit',(function(e) {
 e.preventDefault();
 
-var check = $('#uploadAudio').val();
 
   var categoryID = $(this).find('option:selected').val();  
 
