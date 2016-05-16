@@ -65,7 +65,7 @@ class="menu3 hidden">Upptäck<span class="caret caret-reversed"></span></button>
 <span class="caret caret-reversed"></span></button><div id="popchanBox" class="hidden"></div>
 </div>
 <button type="submit" id="openProf" class="menu">
-Sparade spellistor<span class="caret"></span><button type="submit" id="closeProf" class="menu hidden">Sparade spellistor<span class="caret caret-reversed"></span></button>
+Mina spellistor<span class="caret"></span><button type="submit" id="closeProf" class="menu hidden">Sparade spellistor<span class="caret caret-reversed"></span></button>
 <div id="profBox" class="hidden">';
 
 //matar ut innehållet
