@@ -21,7 +21,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
 else {
   // gör en variabel som fylls på senare för att eco content
   $sounds = '';
