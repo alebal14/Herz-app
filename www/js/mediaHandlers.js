@@ -306,7 +306,7 @@ function setButtonState(curState)
 
 //uppladdning av ljud
 
-$(document).ready(function (e) {
+
 //on submit
  $("#upload").on('submit',(function(e) {
 e.preventDefault();
@@ -396,5 +396,4 @@ $('#suc').html('');
 
 
 
-});
 

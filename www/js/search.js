@@ -4,6 +4,7 @@
 {
   //när sökfältet ifyllt
   $('#search').submit(function(e){
+    alert('hej');
     e.preventDefault();
     //variabler av input
     var search = $('#searchinput').val();
